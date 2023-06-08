@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS Countries CASCADE;
+
+CREATE TABLE Countries(
+	n_country VARCHAR(255) UNIQUE,
+	continent VARCHAR(255)
+);
