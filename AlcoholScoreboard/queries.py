@@ -1,5 +1,5 @@
-from GreenGroceries import db_cursor, conn
-from GreenGroceries.models import User, Farmer, Customer, Produce, Sell, ProduceOrder
+from AlcoholScoreboard import db_cursor, conn
+from AlcoholScoreboard.models import User, Farmer, Customer, Produce, Sell, ProduceOrder
 
 
 # INSERT QUERIES

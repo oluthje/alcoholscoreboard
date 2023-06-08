@@ -6,6 +6,19 @@ from choices import df
 
 load_dotenv()
 
+
+
+import numpy
+from psycopg2.extensions import register_adapter, AsIs
+def addapt_numpy_float64(numpy_float64):
+    return AsIs(numpy_float64)
+def addapt_numpy_int64(numpy_int64):
+    return AsIs(numpy_int64)
+register_adapter(numpy.float64, addapt_numpy_float64)
+register_adapter(numpy.int64, addapt_numpy_int64)
+
+
+
 if __name__ == '__main__':
     conn = psycopg2.connect(
         host="localhost",
@@ -17,22 +30,18 @@ if __name__ == '__main__':
         # Run users.sql
         with open('users.sql') as db_file:
             cur.execute(db_file.read())
-        # Run produce.sql
-        with open('produce.sql') as db_file:
+        # Run alcohol.sql
+        with open('alcohol.sql') as db_file:
             cur.execute(db_file.read())
 
-        # Import all produce from the dataset
-        all_produce = list(
+        # Import all countries from the dataset
+        all_countries = list(
             map(lambda x: tuple(x),
-                df[['category', 'item', 'unit', 'variety', 'price']].to_records(index=False))
+                df[['country', 'beer_servings', 'spirit_servings', 'wine_servings', 'total_litres_of_pure_alcohol', 'continent']].to_records(index=False))
         )
-        args_str = ','.join(cur.mogrify("(%s, %s, %s, %s, %s)", i).decode('utf-8') for i in all_produce)
-        cur.execute("INSERT INTO Produce (category, item, unit, variety, price) VALUES " + args_str)
 
-        # Dummy farmer 1 sells all produce
-        dummy_sales = [(1, i) for i in range(1, len(all_produce) + 1)]
-        args_str = ','.join(cur.mogrify("(%s, %s)", i).decode('utf-8') for i in dummy_sales)
-        cur.execute("INSERT INTO Sell (farmer_pk, produce_pk) VALUES " + args_str)
+        args_str = ','.join(cur.mogrify("(%s,%s,%s,%s,%s,%s)", i).decode('utf-8') for i in all_countries)
+        cur.execute("INSERT INTO Countries (country, beer_servings, spirit_servings, wine_servings, total_litres_of_pure_alcohol, continent) VALUES " + args_str)
 
         conn.commit()
 

@@ -67,16 +67,17 @@
 {% endmacro %}
 
 
-{% macro produce_card (product=None, show_checkout=True, show_restock=False, date=None) %}
+{% macro country_card (product=None, show_checkout=True, show_restock=False, date=None) %}
     <div class="card">
         <div class="card__info">
             {% if date %}
                 <p>Date: {{ date }}</p>
             {% endif %}
-            <p>Category: {{ product.category|format_data }}</p>
-            <p>Item: {{ product.item|format_data }}</p>
-            <p>Variety: {{ product.variety|format_data }}</p>
-            <p>Price: £{{ product.price }} / {{ product.unit }}</p>
+            <p>Country: {{ product.name|format_data }}</p>
+            <p>Beer: {{ product.beer_servings|format_data }}</p>
+            <p>Wine: {{ product.wine_servings|format_data }}</p>
+            <p>Total Alc: {{ product.total_litres_of_pure_alcohol|format_data }}</p>
+            <p>Continent: {{ product.continent|format_data }}</p>
             {% if not date %}
                 <p>In stock: {{ product.available }}</p>
                 <p>Sold by: {{ product.farmer_name }}</p>

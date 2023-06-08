@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from "components/macros.html" import form_errors, produce_card %}
+{% from "components/macros.html" import form_errors, country_card %}
 
 {% block title %}Buy produce{% endblock %}
 
@@ -10,7 +10,7 @@
 {% block content %}
     <section class="form-wrapper">
         <h2 style="text-align: center">Are you sure you want to buy this produce?</h2>
-        {{ produce_card(product=produce, show_checkout=False, show_restock=False) }}
+        {{ country_card(product=produce, show_checkout=False, show_restock=False) }}
         <form method="POST" action="">
             {{ form.hidden_tag() }}
 

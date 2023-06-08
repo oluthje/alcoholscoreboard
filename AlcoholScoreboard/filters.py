@@ -1,4 +1,4 @@
-from GreenGroceries import app
+from AlcoholScoreboard import app
 
 
 @app.template_filter('format_data')

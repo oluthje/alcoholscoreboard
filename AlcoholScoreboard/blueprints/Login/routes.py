@@ -1,10 +1,10 @@
 from flask import render_template, url_for, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user
 
-from GreenGroceries.forms import UserLoginForm, UserSignupForm
-from GreenGroceries.models import Farmer, Customer
-from GreenGroceries.queries import get_user_by_user_name, insert_farmer, insert_customer
-from GreenGroceries.utils.choices import UserTypeChoices
+from AlcoholScoreboard.forms import UserLoginForm, UserSignupForm
+from AlcoholScoreboard.models import Farmer, Customer
+from AlcoholScoreboard.queries import get_user_by_user_name, insert_farmer, insert_customer
+from AlcoholScoreboard.utils.choices import UserTypeChoices
 
 Login = Blueprint('Login', __name__)
 
