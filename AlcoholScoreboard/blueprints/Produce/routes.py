@@ -1,9 +1,9 @@
 from flask import render_template, request, Blueprint
 from flask_login import login_required, current_user
 
-from GreenGroceries.forms import FilterProduceForm, AddProduceForm, BuyProduceForm, RestockProduceForm
-from GreenGroceries.models import Produce as ProduceModel, ProduceOrder
-from GreenGroceries.queries import insert_produce, get_produce_by_pk, Sell, \
+from AlcoholScoreboard.forms import FilterProduceForm, AddProduceForm, BuyProduceForm, RestockProduceForm
+from AlcoholScoreboard.models import Produce as ProduceModel, ProduceOrder
+from AlcoholScoreboard.queries import insert_produce, get_produce_by_pk, Sell, \
     insert_sell, get_all_produce_by_farmer, get_produce_by_filters, insert_produce_order, update_sell, \
     get_orders_by_customer_pk
 

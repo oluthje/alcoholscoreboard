@@ -3,8 +3,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, IntegerField, SelectField, FloatField
 from wtforms.validators import DataRequired, Length, ValidationError, NumberRange
 
-from GreenGroceries.queries import get_user_by_user_name, get_farmer_by_pk, get_customer_by_pk
-from GreenGroceries.utils.choices import ProduceItemChoices, ProduceCategoryChoices, UserTypeChoices, \
+from AlcoholScoreboard.queries import get_user_by_user_name, get_farmer_by_pk, get_customer_by_pk
+from AlcoholScoreboard.utils.choices import ProduceItemChoices, ProduceCategoryChoices, UserTypeChoices, \
     ProduceVarietyChoices, ProduceUnitChoices
 
 

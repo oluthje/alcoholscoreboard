@@ -4,7 +4,7 @@ import pandas as pd
 # from GreenGroceries import app
 
 # DATASET_PATH = os.path.join(app.root_path, 'dataset', 'fruitvegprices-2017_2022.csv')
-DATASET_PATH = '/Users/oscarluthje/Desktop/GreenGroceries/dataset/archive/fruitvegprices-2017_2022.csv'
+DATASET_PATH = 'C:/Users/juand/OneDrive/Documents/DIS/alcoholscoreboard/AlcoholScoreboard/dataset/fruitvegprices-2017_2022.csv'
 
 
 def get_label_name(string):
