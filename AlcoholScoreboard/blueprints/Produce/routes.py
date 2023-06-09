@@ -16,12 +16,17 @@ def produce():
     title = 'Our produce!'
     produce = []
     if request.method == 'POST':
-        produce = get_produce_by_filters(category=request.form.get('category'),
-                                         item=request.form.get('item'),
-                                         variety=request.form.get('variety'),
-                                         farmer_name=request.form.get('sold_by'),
-                                         price=request.form.get('price'))
-        title = f'Our {request.form.get("category")}!'
+        # produce = get_produce_by_filters(category=request.form.get('category'),
+        #                                  item=request.form.get('item'),
+        #                                  variety=request.form.get('variety'),
+        #                                  farmer_name=request.form.get('sold_by'),
+        #                                  price=request.form.get('price'))
+        produce = get_produce_by_filters(category=None,
+                                         item=None,
+                                         variety=None,
+                                         farmer_name=None,
+                                         price=None)
+        title = "Some title lol"#f'Our {request.form.get("category")}!'
     return render_template('pages/produce.html', produce=produce, form=form, title=title)
 
 

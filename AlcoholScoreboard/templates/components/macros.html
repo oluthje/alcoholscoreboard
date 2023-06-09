@@ -67,35 +67,13 @@
 {% endmacro %}
 
 
-{% macro country_card (product=None, show_checkout=True, show_restock=False, date=None) %}
-    <div class="card">
-        <div class="card__info">
-            {% if date %}
-                <p>Date: {{ date }}</p>
-            {% endif %}
-            <p>Country: {{ product.name|format_data }}</p>
-            <p>Beer: {{ product.beer_servings|format_data }}</p>
-            <p>Wine: {{ product.wine_servings|format_data }}</p>
-            <p>Total Alc: {{ product.total_litres_of_pure_alcohol|format_data }}</p>
-            <p>Continent: {{ product.continent|format_data }}</p>
-            {% if not date %}
-                <p>In stock: {{ product.available }}</p>
-                <p>Sold by: {{ product.farmer_name }}</p>
-            {% endif %}
-        </div>
+{% macro country_row (product=None) %}
+    <tr>
+        <td>{{ product.country|format_data }}</td>
+        <td>{{ product.beer_servings|format_data }}</td>
+        <td>{{ product.wine_servings|format_data }}</td>
+        <td>{{ product.total_litres_of_pure_alcohol|format_data }}</td>
+        <td>{{ product.continent|format_data }}</td>
+    </tr>
 
-        <div class="card__action">
-            {% if show_checkout %}
-                {% if product.available %}
-                    <a href="{{ url_for('Produce.buy_produce', pk=product.produce_pk) }}">Buy</a>
-                {% endif %}
-            {% else %}
-                {% if show_restock %}
-                    {% if not product.available %}
-                        <a href="{{ url_for('Produce.restock_produce', pk=product.produce_pk) }}">Restock</a>
-                    {% endif %}
-                {% endif %}
-            {% endif %}
-        </div>
-    </div>
 {% endmacro %}

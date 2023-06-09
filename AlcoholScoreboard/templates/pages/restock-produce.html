@@ -10,7 +10,7 @@
 {% block content %}
     <section class="form-wrapper">
         <h2 style="text-align: center">Are you sure you want to restock this produce?</h2>
-        {{ country_card(product=produce, show_checkout=False, show_restock=False) }}
+        {{ country_row(product=produce) }}
         <form method="POST" action="">
             {{ form.hidden_tag() }}
 
