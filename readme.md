@@ -1,4 +1,4 @@
-# Green Groceries
+# AlcoholScoreboard
 
 ## Initialization ✔
 
