@@ -1,8 +1,8 @@
 {% macro cta_button (class='') %}
     <a class="btn {{ class }}" href="{{ url_for('Produce.produce') }}">
         <span>
-            <img src="{{ url_for('static', filename='images/icons/cart.svg') }}" alt="cart" class="icon">
-            Start shopping
+            <img src="{{ url_for('static', filename='images/icons/white_magnifying_glass.svg') }}" alt="cart" class="icon">
+            Compare Now!
         </span>
     </a>
 {% endmacro %}
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form--row">
-            {% if sold_by %}
+            <!-- {% if sold_by %}
                 <div class="form-group">
                     {{ form.sold_by.label }}
                     {{ form.sold_by }}
@@ -58,7 +58,7 @@
             <div class="form-group">
                 {{ form.price.label }}
                 {{ form.price }}
-            </div>
+            </div> -->
 
             {{ form.submit(class="btn") }}
             <a href="{{ url_for('Produce.produce') }}" class="btn">Clear filters</a>
