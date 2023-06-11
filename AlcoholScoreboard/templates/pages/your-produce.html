@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from 'components/macros.html' import select_field, filter_produce_form, country_card %}
+{% from 'components/macros.html' import select_field, filter_produce_form, country_row %}
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/produce.css') }}">
@@ -10,15 +10,22 @@
 {% endblock %}
 
 {% block content %}
-    <h2>View and manage your produce</h2>
-    {{ filter_produce_form(form=form, sold_by=False) }}
-    <div class="produce">
-    {% if produce|length %}
+    <h2>View your alcohol consumption</h2>
+    <h3 class="text--gray">
+        Here is all the alcohol consumption from each country!
+    </h3>
+    {{ filter_produce_form(form=form) }}
+
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>Beer Servings</th>
+            <th>Wine Servings</th>
+            <th>Total Litres of Pure Alcohol</th>
+            <th>Continent</th>
+        </tr>
         {% for product in produce %}
             {{ country_row(product=product) }}
         {% endfor %}
-    {% else %}
-        <h3 class="text--gray">No produce to show at the moment.</h3>
-    {% endif %}
-    </div>
+    </table>
 {% endblock %}

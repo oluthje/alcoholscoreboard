@@ -10,6 +10,19 @@ CREATE TABLE IF NOT EXISTS Countries(
     continent varchar(30)
 );
 
+DROP TABLE IF EXISTS UserConsumption CASCADE;
+
+CREATE TABLE IF NOT EXISTS UserConsumption(
+    pk serial unique not null PRIMARY KEY,
+    farmer_pk int not null REFERENCES Farmers(pk) ON DELETE CASCADE,
+    country varchar(30),
+    beer_servings int,
+    spirit_servings int,
+    wine_servings int,
+    total_litres_of_pure_alcohol float,
+    continent varchar(30)
+);
+
 -- DROP TABLE IF EXISTS Produce CASCADE;
 
 -- CREATE TABLE IF NOT EXISTS Produce(

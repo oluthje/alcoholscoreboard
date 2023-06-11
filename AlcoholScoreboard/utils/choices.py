@@ -4,8 +4,8 @@ import pandas as pd
 # from AlcoholScoreboard import app
 
 # DATASET_PATH = os.path.join(app.root_path, 'dataset', 'fruitvegprices-2017_2022.csv')
-#DATASET_PATH = '/Users/oscarluthje/Desktop/AlcoholScoreboard/dataset/archive/drinks.csv'
-DATASET_PATH = 'C:/Users/juand/OneDrive/Documents/DIS/alcoholscoreboard/AlcoholScoreboard/dataset/drinks.csv'
+DATASET_PATH = '/Users/oscarluthje/Desktop/AlcoholScoreboard/dataset/archive/drinks.csv'
+# DATASET_PATH = 'C:/Users/juand/OneDrive/Documents/DIS/alcoholscoreboard/AlcoholScoreboard/dataset/drinks.csv'
 
 
 def get_label_name(string):

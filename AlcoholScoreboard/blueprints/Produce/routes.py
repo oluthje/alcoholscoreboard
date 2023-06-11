@@ -35,18 +35,16 @@ def produce():
 def add_produce():
     form = AddProduceForm(data=dict(farmer_pk=current_user.pk))
     if request.method == 'POST':
-        if form.validate_on_submit():
-            produce_data = dict(
-                category=form.category.data,
-                item=form.item.data,
-                variety=form.variety.data,
-                unit=form.unit.data,
-                price=form.price.data
-            )
-            produce = ProduceModel(produce_data)
-            new_produce_pk = insert_produce(produce)
-            sell = Sell(dict(farmer_pk=current_user.pk, produce_pk=new_produce_pk, available=True))
-            insert_sell(sell)
+        produce_data = dict(
+            country=form.country.data,
+            liters_beer=form.liters_beer.data,
+            liters_wine=form.liters_wine.data,
+            liters_spirits=form.liters_spirits.data,
+            liters_alc=form.liters_alc.data,
+            continent=form.continent.data,
+        )
+        produce = ProduceModel(produce_data)
+        insert_produce(produce)
     return render_template('pages/add-produce.html', form=form)
 
 

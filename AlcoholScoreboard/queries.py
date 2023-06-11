@@ -31,19 +31,32 @@ def insert_customer(customer: Customer):
 
 
 def insert_produce(produce: Produce):
+    # sql = """
+    # INSERT INTO Produce(category, item, unit, variety, price)
+    # VALUES (%s, %s, %s, %s, %s) RETURNING pk
+    # """
+    # db_cursor.execute(sql, (
+    #     produce.category,
+    #     produce.item,
+    #     produce.unit,
+    #     produce.variety,
+    #     produce.price
+    # ))
+    # conn.commit()
+    # return db_cursor.fetchone().get('pk') if db_cursor.rowcount > 0 else None
     sql = """
-    INSERT INTO Produce(category, item, unit, variety, price)
-    VALUES (%s, %s, %s, %s, %s) RETURNING pk
+    INSERT INTO UserConsumption(country, beer_servings, wine_servings, spirit_servings, total_litres_of_pure_alcohol, continent)
+    VALUES (%s, %s, %s, %s, %s, %s) RETURNING pk
     """
     db_cursor.execute(sql, (
-        produce.category,
-        produce.item,
-        produce.unit,
-        produce.variety,
-        produce.price
+        produce.country,
+        produce.liters_beer,
+        produce.liters_wine,
+        produce.liters_spirits,
+        produce.liters_alc,
+        produce.continent,
     ))
     conn.commit()
-    return db_cursor.fetchone().get('pk') if db_cursor.rowcount > 0 else None
 
 
 def insert_sell(sell: Sell):
@@ -137,9 +150,7 @@ def get_produce_by_pk(pk):
 
 def get_all_produce_by_farmer(pk):
     sql = """
-    SELECT * FROM vw_produce
-    WHERE farmer_pk = %s
-    ORDER BY available DESC, price
+    SELECT * FROM UserConsumption
     """
     db_cursor.execute(sql, (pk,))
     produce = [Produce(res) for res in db_cursor.fetchall()] if db_cursor.rowcount > 0 else []

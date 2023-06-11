@@ -13,46 +13,46 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
 
-            <div class="form-group" hidden>
-                {{ form.farmer_pk.label }}
-                {{ form.farmer_pk }}
+            <div class="form-group">
+                {{ form.country.label }}
+                {{ form.country }}
 
-                {{ form_errors(form.farmer_pk.errors) }}
+                {{ form_errors(form.country.errors) }}
             </div>
 
             <div class="form-group">
-                {{ form.category.label }}
-                {{ form.category }}
+                {{ form.liters_beer.label }}
+                {{ form.liters_beer }}
 
-                {{ form_errors(form.category.errors) }}
+                {{ form_errors(form.liters_beer.errors) }}
             </div>
 
             <div class="form-group">
-                {{ form.item.label }}
-                {{ form.item }}
+                {{ form.liters_wine.label }}
+                {{ form.liters_wine }}
 
-                {{ form_errors(form.item.errors) }}
+                {{ form_errors(form.liters_wine.errors) }}
             </div>
 
             <div class="form-group">
-                {{ form.variety.label }}
-                {{ form.variety }}
+                {{ form.liters_spirits.label }}
+                {{ form.liters_spirits }}
 
-                {{ form_errors(form.variety.errors) }}
+                {{ form_errors(form.liters_spirits.errors) }}
             </div>
 
             <div class="form-group">
-                {{ form.unit.label }}
-                {{ form.unit }}
+                {{ form.liters_alc.label }}
+                {{ form.liters_alc }}
 
-                {{ form_errors(form.unit.errors) }}
+                {{ form_errors(form.liters_alc.errors) }}
             </div>
 
             <div class="form-group">
-                {{ form.price.label }}
-                {{ form.price }}
+                {{ form.continent.label }}
+                {{ form.continent }}
 
-                {{ form_errors(form.price.errors) }}
+                {{ form_errors(form.continent.errors) }}
             </div>
 
             <div class="form-group">

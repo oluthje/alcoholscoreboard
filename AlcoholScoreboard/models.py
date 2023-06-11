@@ -56,15 +56,12 @@ class Produce(ModelMixin):
     def __init__(self, produce_data: Dict):
         super(Produce, self).__init__(produce_data)
         self.pk = produce_data.get('pk')
-        self.category = produce_data.get('category')
-        self.item = produce_data.get('item')
-        self.unit = produce_data.get('unit')
-        self.variety = produce_data.get('variety')
-        self.price = produce_data.get('price')
-        # From JOIN w/ Sell relation
-        self.available = produce_data.get('available')
-        self.farmer_name = produce_data.get('farmer_name')
-        self.farmer_pk = produce_data.get('farmer_pk')
+        self.country = produce_data.get('country')
+        self.liters_beer = produce_data.get('liters_beer')
+        self.liters_wine = produce_data.get('liters_wine')
+        self.liters_spirits = produce_data.get('liters_spirits')
+        self.liters_alc = produce_data.get('liters_alc')
+        self.continent = produce_data.get('continent')
 
 
 class Sell(ModelMixin):

@@ -68,29 +68,13 @@ class FilterProduceForm(FlaskForm):
 
 
 class AddProduceForm(FlaskForm):
-    category = SelectField('Category',
-                           validators=[DataRequired()],
-                           choices=ProduceCategoryChoices.choices())
-    item = SelectField('Item (Subcategory)',
-                       validators=[DataRequired()],
-                       choices=ProduceItemChoices.choices())
-    variety = SelectField('Variety',
-                          validators=[DataRequired()],
-                          choices=ProduceVarietyChoices.choices())
-    unit = SelectField('Unit',
-                       validators=[DataRequired()],
-                       choices=ProduceUnitChoices.choices())
-    price = IntegerField('Price',
-                         validators=[DataRequired(), NumberRange(min=0, max=100)])
-    farmer_pk = IntegerField('Farmer',
-                             validators=[DataRequired()],
-                             render_kw=dict(disabled='disabled'))
-    submit = SubmitField('Add produce')
-
-    def validate_price(self, field):
-        farmer = get_farmer_by_pk(self.farmer_pk.data)
-        if farmer is None:
-            raise ValidationError("You need to be a farmer to sell produce!")
+    country = StringField('Country')
+    liters_beer = IntegerField('Liters of Beer')
+    liters_wine = IntegerField('Liters of Wine')
+    liters_spirits = IntegerField('Liters of Spirits')
+    liters_alc = FloatField('Liters of Pure Alcohol')
+    continent = StringField('Continent')
+    submit = SubmitField('Add user consumption')
 
 
 class BuyProduceForm(FlaskForm):
