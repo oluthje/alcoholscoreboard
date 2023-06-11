@@ -3,7 +3,7 @@ from typing import Dict
 from flask_login import UserMixin
 from psycopg2 import sql
 
-from GreenGroceries import login_manager, db_cursor, conn, app
+from AlcoholScoreboard import login_manager, db_cursor, conn, app
 
 
 @login_manager.user_loader

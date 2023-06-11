@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from 'components/macros.html' import select_field, filter_produce_form, produce_card %}
+{% from 'components/macros.html' import select_field, filter_produce_form, country_card %}
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/produce.css') }}">
@@ -15,7 +15,7 @@
     <div class="produce">
     {% if produce|length %}
         {% for product in produce %}
-            {{ produce_card(product=product, show_checkout=False, show_restock=True) }}
+            {{ country_row(product=product) }}
         {% endfor %}
     {% else %}
         <h3 class="text--gray">No produce to show at the moment.</h3>

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from 'components/macros.html' import select_field, filter_produce_form, produce_card %}
+{% from 'components/macros.html' import select_field, filter_produce_form, country_row %}
 
 {% block css %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/produce.css') }}">
@@ -10,20 +10,45 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Find specific produce</h2>
+    <h2>Filter Specific Countries by alcohol consumption</h2>
     <h3 class="text--gray">
-        Try filtering produce by your needs and see what you can find!
+        Here is all the alcohol consumption from each country!
     </h3>
     {{ filter_produce_form(form=form) }}
-    <div class="produce">
+    <!-- <div class="produce">
         {% if produce|length %}
             {% for product in produce %}
-                {{ produce_card(product=product) }}
+                {{ country_row(product=product) }}
             {% endfor %}
         {% else %}
             <h3 class="text--gray">
                 No products found for selected filters
             </h3>
         {% endif %}
-    </div>
+    </div> -->
+
+    <!-- <div class="produce">
+        {% if produce|length %}
+            {% for product in produce %}
+                {{ country_row(product=product) }}
+            {% endfor %}
+        {% else %}
+            <h3 class="text--gray">
+                No products found for selected filters
+            </h3>
+        {% endif %}
+    </div> -->
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>Beer Servings</th>
+            <th>Wine Servings</th>
+            <th>Total Litres of Pure Alcohol</th>
+            <th>Continent</th>
+        </tr>
+        {% for product in produce %}
+            {{ country_row(product=product) }}
+        {% endfor %}
+    </table>
+
 {% endblock %}

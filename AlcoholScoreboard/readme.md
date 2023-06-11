@@ -6,14 +6,14 @@ Clone / download repository files and run the following to install the required 
 
     pip install -r requirements.txt
 
-Create a new database in pgAdmin (preferably named GreenGroceries) and add the following to your .env file (normally
+Create a new database in pgAdmin (preferably named AlcoholScoreboard) and add the following to your .env file (normally
 .env should be a private file containing user secrets, in this case we have kept it inside the project files for easy
 access for the TAs):
 
     SECRET_KEY=<secret_key>
     DB_USERNAME=postgres || <postgres_user_name>
     DB_PASSWORD=<postgres_user_password>
-    DB_NAME=GreenGroceries || <postgres_db_name>
+    DB_NAME=AlcoholScoreboard || <postgres_db_name>
 
 When all this information is present (and correct) the server can be started with:
 
@@ -33,7 +33,7 @@ The app is divided into multiple folders similar to the structure of the example
 - __utils__: Contains the sql files and script that generate the postgresql database. Also contains a script that
   generates custom choices objects for flask forms used in SelectFields taken from the dataset.
 
-At the root folder of the app (./GreenGroceries) six more scripts are present with the following roles:
+At the root folder of the app (./AlcoholScoreboard) six more scripts are present with the following roles:
 
 - __\_\_init\_\_.py__: Initializes the flask app and creates a connection to the database (and a cursor object for
   future queries)

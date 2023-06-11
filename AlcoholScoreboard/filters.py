@@ -1,7 +1,7 @@
-from GreenGroceries import app
+from AlcoholScoreboard import app
 
 
 @app.template_filter('format_data')
 def format_data(string):
-    return string.replace('_', ' ').capitalize()
+    return string#string.replace('_', ' ').capitalize()
 
